@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.image{
+    @apply cursor-pointer rounded aspect-[3/2] object-contain 
+}
+
+.image-extra-round{
+    @apply cursor-pointer rounded-2xl aspect-[3/2] object-contain 
+}
+.image-full-round{
+    @apply cursor-pointer rounded-full aspect-[3/2] object-contain 
+}
+
+.icon-color{
+    color: #72908D;
+}
+.text-color{
+    color: #2C2E2F;
+}
+
+.model-color{
+    background-color: rgba(189, 189, 189, 0.9);
+}
