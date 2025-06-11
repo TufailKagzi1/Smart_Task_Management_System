@@ -1,9 +1,10 @@
 import "react-cmdk/dist/cmdk.css";
 import CommandPalette, { filterItems, getItemIndex } from "react-cmdk";
 import { useEffect, useState } from "react";
+import ApiService from "../../Services/ApiService";
 
-const CommandMenu = ({open, setOpen}) => {
-    
+const CommandMenu = ({ open, setOpen }) => {
+
   const [page, setPage] = useState("root");
   const [search, setSearch] = useState("");
 
@@ -18,18 +19,19 @@ const CommandMenu = ({open, setOpen}) => {
             id: "home",
             children: "Home",
             icon: "HomeIcon",
-            href: "#",
+            href: "/",
           },
           {
             id: "settings",
             children: "Settings",
             icon: "CogIcon",
-            href: "#",
+            href: "/user",
           },
           {
             id: "projects",
             children: "Projects",
             icon: "RectangleStackIcon",
+            href:'mytask'
           },
         ],
       },
@@ -54,7 +56,11 @@ const CommandMenu = ({open, setOpen}) => {
             children: "Log out",
             icon: "ArrowRightOnRectangleIcon",
             onClick: () => {
-              alert("Logging out...");
+              let log = confirm("Are you sure you want to logout?");
+              if (log) {
+                ApiService.logout();
+                navigate('/login');
+              }
             },
           },
         ],

@@ -30,7 +30,9 @@ const TopBar = () => {
         <div className="flex gap-4 items-center">
           <Search />
           <div className="flex gap-3 h-full items-center border-x border-solid border-[#d9ebe9] px-2">
-            <FontAwesomeIcon icon={faGear} size='lg' color='#72908D' />
+            <NavLink to={'/user'}>
+              <FontAwesomeIcon icon={faGear} size='lg' color='#72908D' />
+            </NavLink>
             <FontAwesomeIcon icon={faCircleQuestion} size='lg' color='#72908D' />
           </div>
           <NavLink to='/user'>

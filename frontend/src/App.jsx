@@ -9,19 +9,9 @@ import { ProtectedRoute } from "./Services/Guard";
 
 function App() {
   return (
-    <div></div>
-    // <BrowserRouter>
-    //   <div className="App">
-    //     {/* Main Layout Structure */}
-    //     <Routes>
-    //       {/* Public Route for Login */}
-    //       <Route path="/login" element={<LogIn />} />
-    //       <Route path="/signup" element={<Signup />} />
-        
-    //       <Route path="/" element={ <ProtectedRoute element={Home} /> } />
-    //       </Routes>
-    //   </div>
-    // </BrowserRouter>
+    <div>
+      {/* For starting point check main.jsx */}
+    </div>
   );
 }
 
