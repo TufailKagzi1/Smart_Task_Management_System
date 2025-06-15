@@ -30,9 +30,7 @@ import {
       stage: task.stage,
       dueDate: task.dueDate,
     });
-  
-    console.log("test purpose : "+formData);
-    
+      
     const [formErrors, setFormErrors] = useState({});
   
     // Handle form field changes
@@ -85,12 +83,9 @@ import {
   
       if (Object.keys(errors).length === 0) {
         
-        console.log("Form Data Submitted:", formData," : ",task.id);
         // Proceed with form submission (e.g., API call)
         try {
-          const response = await ApiService.updateTask(formData,task.id);
-          console.log(response);
-          
+          const response = await ApiService.updateTask(formData,task.id);          
           if (response.statusCode === 200) {
             // task Component
             updateContent();

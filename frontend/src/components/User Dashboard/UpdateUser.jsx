@@ -38,12 +38,9 @@ const UpdateUser = ({ user }) => {
         email: userProfile.email,
         bio:userProfile.bio
       }
-      console.log(newUpdate);
 
       try {
         const response = await ApiService.updateUser(newUpdate);
-        console.log(response);
-
         if (response.statusCode === 200) {
           navigate('/');
         }

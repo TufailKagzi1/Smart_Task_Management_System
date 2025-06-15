@@ -22,7 +22,6 @@ const CreateTask = ({ closeModel, handleUpdateList }) => {
   const [APIError, setAPIError] = useState('');
   let created = formatDate(new Date());
   const [availableUsers, setAvailableUsers] = useState([]);
-  console.log(availableUsers);
 
 
   const [formData, setFormData] = useState({
@@ -89,8 +88,7 @@ const CreateTask = ({ closeModel, handleUpdateList }) => {
 
     if (Object.keys(errors).length === 0) {
 
-      console.log("Form Data Submitted:", formData);
-      // Proceed with form submission (e.g., API call)
+    // Proceed with form submission (e.g., API call)
       try {
         const response = await ApiService.createTask(formData);
         console.log(response);

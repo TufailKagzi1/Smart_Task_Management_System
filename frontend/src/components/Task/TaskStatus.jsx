@@ -10,8 +10,6 @@ const TaskStatus = ({ status, assignedBy, assignedTo }) => {
 
   const { taskID } = useParams();
   const user = useContext(UserContext);
-
-  console.log(user);
   
   const [error, setError] = useState(null);
   const [showModel, setShowModel] = useState(false);
@@ -21,7 +19,6 @@ const TaskStatus = ({ status, assignedBy, assignedTo }) => {
 
   // check whether the current user can update the task
   const update = (assignedBy === user.user.username) || (assignedTo === user.user.username);
-  console.log(assignedTo);
   
   const getStatusCards = () => [
     {
@@ -69,7 +66,6 @@ const TaskStatus = ({ status, assignedBy, assignedTo }) => {
         }
 
     } catch (error) {
-      console.log(error);
       setError(error.response?.data?.message || error.message);
       setTimeout(() => {
         setError('');
@@ -78,7 +74,6 @@ const TaskStatus = ({ status, assignedBy, assignedTo }) => {
   };
 
   useEffect(() => {
-    console.log("Received status prop:", status);
     setCurrentStatus(status);
   }, [status]);
 

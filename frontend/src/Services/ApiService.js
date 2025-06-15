@@ -109,7 +109,6 @@ export default class ApiService {
       username,
       { headers: this.getHeader() }
     );
-    console.log("changed user name :",response);
     return response.data;
   }
 
@@ -132,7 +131,6 @@ export default class ApiService {
       taskData,
       { headers: this.getHeader() }
     );
-    console.log("iphone response" + response);
 
 
     return response.data;
