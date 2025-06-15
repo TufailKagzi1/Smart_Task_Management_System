@@ -14,7 +14,7 @@ const UpdateUser = ({ user }) => {
     firstName: user.name,
     username: user.username,
     email: user.email,
-    bio: "",
+    bio: user.bio,
   });
 
 
@@ -31,11 +31,12 @@ const UpdateUser = ({ user }) => {
 
   const handleUpdate = async () => {
 
-    if (!(userProfile.firstName === user.name && userProfile.email === user.email)) {
+    if (!(userProfile.firstName === user.name && userProfile.email === user.email && userProfile.bio === user.bio)) {
       let newUpdate = {
         name: userProfile.firstName,
         username: userProfile.username,
         email: userProfile.email,
+        bio:userProfile.bio
       }
       console.log(newUpdate);
 

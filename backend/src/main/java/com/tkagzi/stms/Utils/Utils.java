@@ -26,6 +26,7 @@ public class Utils {
                 .email(requestDTO.getEmail())
                 .role(requestDTO.getRole())
                 .password(requestDTO.getPassword())
+                .bio("")
                 .build();
     }
 
@@ -50,6 +51,7 @@ public class Utils {
                 .username(userDTO.getUsername())
                 .email(userDTO.getEmail())
                 .role(userDTO.getRole())
+                .bio(userDTO.getBio())
                 .build();
     }
 
@@ -62,6 +64,7 @@ public class Utils {
                 .email(userDTO.getEmail())
                 .tasks(taskList)
                 .role(userDTO.getRole())
+                .bio(userDTO.getBio())
                 .build();
     }
     
@@ -89,6 +92,7 @@ public class Utils {
                 .username(user.getUsername())
                 .email(user.getEmail())
                 .role(user.getRole())
+                .bio(user.getBio())
                 .build();
     }
 
@@ -104,6 +108,7 @@ public class Utils {
                 .email(user.getEmail())
                 .role(user.getRole())
                 .taskList(taskDTOS)
+                .bio(user.getBio())
                 .build();
     }
     

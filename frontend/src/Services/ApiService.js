@@ -1,7 +1,9 @@
 import axios from "axios";
 
+const BASE_URL = import.meta.env.VITE_APP_BASE_URL;
+
 export default class ApiService {
-  static BASE_URL = "http://localhost:8080";
+  static BASE_URL = BASE_URL;
 
   static getHeader() {
     const token = localStorage.getItem("token");
@@ -11,6 +13,16 @@ export default class ApiService {
     };
   }
 
+  // ✅ Use ApiService.BASE_URL throughout the class like you already do
+  static async registerUser(registration) {
+    const response = await axios.post(
+      `${this.BASE_URL}/auth/register`,
+      registration
+    );
+    return response.data;
+  }
+
+  
   // *****AUTH
 
   // REGISTER NEW USER

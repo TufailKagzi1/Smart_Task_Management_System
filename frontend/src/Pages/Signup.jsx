@@ -41,34 +41,42 @@ const Signup = () => {
   };
 
   const validateForm = () => {
-    const newErrors = {};
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const newErrors = {};
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!registerData.name) {
-      newErrors.name = "Name is required.";
-    }
-    if (!registerData.username) {
-      newErrors.username = "Username is required.";
-    }
-    if (!registerData.email) {
-      newErrors.email = "Email is required.";
-    } else if (!emailRegex.test(registerData.email)) {
-      newErrors.email = "Invalid email format.";
-    }
-    if (!registerData.password) {
-      newErrors.password = "Password is required.";
-    } else if (registerData.password.length < 6) {
-      newErrors.password = "Password must be at least 6 characters long.";
-    }
-    if (!registerData.confirmPassword) {
-      newErrors.confirmPassword = "Please confirm your password.";
-    } else if (registerData.password !== registerData.confirmPassword) {
-      newErrors.confirmPassword = "Passwords do not match.";
-    }
+  if (!registerData.name) {
+    newErrors.name = "Name is required.";
+  }
 
-    setError(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
+  if (!registerData.username) {
+    newErrors.username = "Username is required.";
+  } else if (/\s/.test(registerData.username)) {
+    newErrors.username = "Username must not contain spaces.";
+  }
+
+  if (!registerData.email) {
+    newErrors.email = "Email is required.";
+  } else if (!emailRegex.test(registerData.email)) {
+    newErrors.email = "Invalid email format.";
+  } else if (/\s/.test(registerData.email)) {
+    newErrors.email = "Email must not contain spaces.";
+  }
+
+  if (!registerData.password) {
+    newErrors.password = "Password is required.";
+  } else if (registerData.password.length < 6) {
+    newErrors.password = "Password must be at least 6 characters long.";
+  }
+
+  if (!registerData.confirmPassword) {
+    newErrors.confirmPassword = "Please confirm your password.";
+  } else if (registerData.password !== registerData.confirmPassword) {
+    newErrors.confirmPassword = "Passwords do not match.";
+  }
+
+  setError(newErrors);
+  return Object.keys(newErrors).length === 0;
+};
 
   const handleSignUp = async (e) => {
     e.preventDefault();

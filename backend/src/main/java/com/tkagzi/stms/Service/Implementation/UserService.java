@@ -216,6 +216,7 @@ public class UserService implements IUserService {
 
             db_user.setName(user.getName());
             db_user.setEmail(user.getEmail());
+            db_user.setBio(user.getBio());
 
             User save = userRepository.save(db_user);
 

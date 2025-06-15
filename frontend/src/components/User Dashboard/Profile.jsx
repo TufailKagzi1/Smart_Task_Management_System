@@ -49,9 +49,7 @@ const Profile = ({user}) => {
           <div className="leading-9 mt-4">
             <p className="icon-color text-sm">Bio</p>
             <p className="text-lg">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic
-              consequuntur repellendus distinctio ipsam nobis quisquam saepe
-              laudantium. Labore qui sequi expedita nostrum reiciendis.
+              {user.bio}
             </p>
           </div>
         </div>

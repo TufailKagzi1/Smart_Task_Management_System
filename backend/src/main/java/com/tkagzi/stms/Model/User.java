@@ -46,6 +46,10 @@ public class User implements UserDetails {
     @Size(min = 4, message = "Password must be more than 4 character long")
     private String password;
 
+
+    @Size(max = 1000, message = "Bio length must not exceed 1000 characters.")
+    private String bio = "";
+
     @OneToMany(
             fetch = FetchType.LAZY,
             cascade = CascadeType.ALL,

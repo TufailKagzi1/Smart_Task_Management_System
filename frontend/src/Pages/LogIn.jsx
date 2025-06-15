@@ -52,26 +52,33 @@ const LogIn = () => {
   };
 
   const validateForm = () => {
-    const newErrors = {};
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const newErrors = {};
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!loginData.username) {
-      newErrors.username = "Username is Required";
-    }
-    if (!loginData.email) {
-      newErrors.email = "email is Required";
-    } else if (!emailRegex.test(loginData.email)) {
-      newErrors.email = "Invalid email format.";
-    }
-    if (!loginData.password) {
-      newErrors.password = "Password is required.";
-    } else if (loginData.password.length < 2) {
-      newErrors.password = "Password must be at least 6 characters long.";
-    }
+  if (!loginData.username) {
+    newErrors.username = "Username is required.";
+  } else if (/\s/.test(loginData.username)) {
+    newErrors.username = "Username must not contain spaces.";
+  }
 
-    setError(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
+  if (!loginData.email) {
+    newErrors.email = "Email is required.";
+  } else if (!emailRegex.test(loginData.email)) {
+    newErrors.email = "Invalid email format.";
+  } else if (/\s/.test(loginData.email)) {
+    newErrors.email = "Email must not contain spaces.";
+  }
+
+  if (!loginData.password) {
+    newErrors.password = "Password is required.";
+  } else if (loginData.password.length < 6) {
+    newErrors.password = "Password must be at least 6 characters long.";
+  }
+
+  setError(newErrors);
+  return Object.keys(newErrors).length === 0;
+};
+
 
   return (
     <div className="grid h-screen w-screen grid-cols-1 items-center p-4 md:grid-cols-[1.5fr,_2.5fr]">
